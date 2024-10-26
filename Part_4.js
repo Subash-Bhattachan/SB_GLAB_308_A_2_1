@@ -13,6 +13,27 @@ roll (mod = 0) {
     console.log(`${this.name} rolled a ${result}.`)
 
   }
+
+  healthSuffer(amount) {
+    this.health = Math.max(this.health - amount, 0);
+    console.log(`${this.name} suffered ${amount} damage. So far the cuuent health of ${this.name} is ${this.health}`);
+}
+
+
+addToInventory(item) {
+this.inventory.push(item);
+console.log(`${this.name} added ${item} to the inventory.`);
+
+}
+
+showInventory() {
+  
+  console.log(`${this.name} inventory contains these many items: ${this.inventory}`);
+  
+}
+
+
+
 }
 
 
@@ -22,7 +43,7 @@ class Adventurer extends Character {
     constructor (name, role) {
       super(name);
 
-      // to check if the given rolw is valid enough
+      // to check if the given role is valid enough
       if(!Adventurer.ROLES.includes(role)) {
         throw new Error(`The role entered i.e. ${role} is not valid and does not belong to ${Adventurer.ROLES.join(", ")}.`);
       }
@@ -91,7 +112,7 @@ class Companion extends Character {
 
     getTraining(score) {
         this.faithfulness += score;
-        console.log(`${this.name} can get the training level and increarse the faithfulness level to ${this.faithfulness}`);
+        console.log(`${this.name} can get the training level and increase the faithfulness level to ${this.faithfulness}`);
     }
 
     }
@@ -103,13 +124,17 @@ const robin = new Adventurer("Robin", "Fighter");
 console.log(robin)
 
 // for companion
-const dodo = new Companion('Dodo', 5, 0);
-console.log(dodo);
+const Dora = new Companion('Dora', 5, 0);
+console.log(Dora);
 
 
 robin.gainSkill(50);
 robin.scout();
-dodo.providesHelp(robin);
+Dora.providesHelp(robin);
 
+robin.addToInventory("Knife");
+Dora.addToInventory("Fire")
+Dora.showInventory();
+robin.healthSuffer(30);
 
 
