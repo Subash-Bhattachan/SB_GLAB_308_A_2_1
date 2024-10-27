@@ -107,20 +107,3 @@ robin.rejuvenate();   // Regain health
 dodo.providesHelp(robin); // Dodo helps Robin
 dodo.getTraining(2); // Increase Dodo's faithfulness
 
-
-// class Animal {
-//     constructor(name) {
-//       this.name = name;
-//     }
-//   }
-  
-//   class Dog extends Animal {
-//     constructor(name, breed) {
-//       super(name); // Call the Animal constructor to set the name
-//       this.breed = breed;
-//     }
-//   }
-  
-//   const myDog = new Dog("Buddy", "Golden Retriever");
-//   console.log(myDog.name); // Output: "Buddy"
-//   console.log(myDog.breed); // Output: "Golden Retriever" 
